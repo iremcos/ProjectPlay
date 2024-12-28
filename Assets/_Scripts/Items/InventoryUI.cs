@@ -1,18 +1,34 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class InventoryUI : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public GameObject slotTemplate;  // Prefab of the slot template
+    public Transform slotContainer; // Parent for inventory slots
+
+    private InventoryManager inventoryManager;
+
     void Start()
     {
-        
+        inventoryManager = FindObjectOfType<InventoryManager>();
+        UpdateUI();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void UpdateUI()
     {
-        
+        // Clear existing slots
+        foreach (Transform child in slotContainer)
+        {
+            Destroy(child.gameObject);
+        }
+
+        // Add new slots for each inventory item
+        foreach (Item item in inventoryManager.inventory)
+        {
+            GameObject slot = Instantiate(slotTemplate, slotContainer);
+            slot.GetComponent<Image>().sprite = item.icon;
+        }
     }
 }
