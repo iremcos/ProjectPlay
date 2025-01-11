@@ -155,7 +155,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slotTemplate: {fileID: 2048974529}
-  slotContainer: {fileID: 2048974530}
+  slotContainer: {fileID: 0}
 --- !u!114 &312360915
 MonoBehaviour:
   m_ObjectHideFlags: 0
