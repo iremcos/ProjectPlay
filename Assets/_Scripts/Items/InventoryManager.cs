@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class InventoryManager : MonoBehaviour
 {
+    public static InventoryManager Instance;
+
     public List<Item> inventory = new List<Item>();
     public int maxSlots = 5;
 
@@ -18,15 +20,16 @@ public class InventoryManager : MonoBehaviour
         inventory.Add(item);
         Debug.Log($"{item.itemName} added to inventory");
     }
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        
-    }
+        if(Instance == null)
+        {
+            Instance = this;
+        }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 }

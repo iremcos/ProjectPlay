@@ -17,6 +17,7 @@ public class PickUpItem : MonoBehaviour
     {
         if (isPlayerNearby && Input.GetKeyDown(KeyCode.E))
         {
+            PickUp();
             InventoryManager inventory = FindObjectOfType<InventoryManager>();
             if (inventory != null)
             {
@@ -52,5 +53,14 @@ public class PickUpItem : MonoBehaviour
                 Destroy(popupInstance);
             }
         }
+    }
+
+    void PickUp()
+    {
+        InventoryManager.Instance.AddItem(item);
+
+        Debug.Log($"Picked up {item.name}");
+
+        Destroy(gameObject);
     }
 }

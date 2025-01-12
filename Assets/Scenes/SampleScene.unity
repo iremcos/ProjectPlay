@@ -155,7 +155,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slotTemplate: {fileID: 2048974529}
-  slotContainer: {fileID: 0}
+  slotContainer: {fileID: 1365275326}
 --- !u!114 &312360915
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -660,7 +660,7 @@ GameObject:
   - component: {fileID: 1152725742}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1010,6 +1010,11 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 72
   m_CollisionDetection: 0
+--- !u!224 &1365275326 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 1100457281132261643, guid: 8167ee348a8397d43bf160dbf7ea7cbb, type: 3}
+  m_PrefabInstance: {fileID: 7468159592051398290}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2048974529 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1672135723429815357, guid: 8167ee348a8397d43bf160dbf7ea7cbb, type: 3}
