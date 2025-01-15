@@ -4,24 +4,21 @@ using UnityEngine;
 
 public class Bell_Puzzel : MonoBehaviour
 {
-    public GameObject[] bellSlots; 
-    private List<GameObject> placedBells = new List<GameObject>();
+    public List<Transform> correctOrder;
+    public List<GameObject> bells;
 
     public void CheckOrder()
     {
-        for (int i = 0; i < bellSlots.Length; i++)
+        for (int i = 0; i < correctOrder.Count; i++)
         {
-            if (bellSlots[i].transform.childCount > 0)
+            if (!bells[i].GetComponent<Bell>().isSnapped || bells[i].transform.position != correctOrder[i].position)
             {
-                var bell = bellSlots[i].transform.GetChild(0).gameObject;
-                if (bell != placedBells[i])
-                {
-                    Debug.Log("Incorrect Order");
-                    return;
-                }
+                Debug.Log("Bells are not in the correct order!");
+                return;
             }
         }
-        Debug.Log("Correct Order! Puzzle Solved!");
+
+        Debug.Log("Bells are in the correct order!");
         
     }
 }

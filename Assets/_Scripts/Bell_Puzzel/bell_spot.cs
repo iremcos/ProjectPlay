@@ -1,22 +1,41 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Progress;
 
 public class bell_spot : MonoBehaviour
 {
-    public Transform snapPosition; 
-    public float snapRange = 1.0f; 
+    public Transform snapPoint;
+    public float snapRange = 1.0f;
+    public string snappingId;
 
-    void OnTriggerEnter(Collider other)
+    void OnTriggerStay(Collider other)
     {
-        if (other.CompareTag("Bell"))
+        if (other.CompareTag("Bell") && Vector3.Distance(transform.position, other.transform.position) < snapRange)
         {
-            float distance = Vector3.Distance(transform.position, other.transform.position);
-            if (distance < snapRange)
+           
+
+            Bell bellComponent = other.GetComponent<Bell>();
+            if (bellComponent != null && bellComponent.BellId == snappingId)
             {
-                other.transform.position = snapPosition.position; 
-                other.GetComponent<Bell>().isSnapped = true; 
+                bellComponent.isSnapped = true;
+                Debug.Log("is snapped");
+                other.transform.position = snapPoint.position;
+                other.transform.rotation = snapPoint.rotation;
+                Rigidbody rb = other.GetComponent<Rigidbody>();
+                if (rb != null)
+                {
+                    rb.isKinematic = true;
+                }
             }
+            else 
+            {
+                
+                Debug.Log("wrong");
+            }
+           
+
+            
         }
     }
 }

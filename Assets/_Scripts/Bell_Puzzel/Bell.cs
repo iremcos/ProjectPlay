@@ -4,5 +4,8 @@ using UnityEngine;
 
 public class Bell : MonoBehaviour
 {
+    public string BellId;
     public bool isSnapped = false;
+
+
 }
