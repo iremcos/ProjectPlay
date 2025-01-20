@@ -1033,6 +1033,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 809912471915408899, guid: 3f6fe4e3544016e4eb9f16f2cd119e37, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 919585327805911756, guid: 3f6fe4e3544016e4eb9f16f2cd119e37, type: 3}
       propertyPath: m_Name
       value: PopupPrefab

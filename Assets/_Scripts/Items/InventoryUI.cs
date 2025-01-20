@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class InventoryUI : MonoBehaviour
 {
-    public GameObject slotTemplate;  // Prefab of the slot template
-    public Transform slotContainer; // Parent for inventory slots
+    public GameObject slotTemplate;
+    public Transform slotContainer;
 
     private InventoryManager inventoryManager;
 
@@ -18,13 +18,11 @@ public class InventoryUI : MonoBehaviour
 
     public void UpdateUI()
     {
-        // Clear existing slots
         foreach (Transform child in slotContainer)
         {
             Destroy(child.gameObject);
         }
 
-        // Add new slots for each inventory item
         foreach (Item item in inventoryManager.inventory)
         {
             GameObject slot = Instantiate(slotTemplate, slotContainer);
