@@ -17,9 +17,13 @@ public class Correct_plant : MonoBehaviour
     {
         if (selectedSoil != null && selectedPlantPrefab != null)
         {
-            // Instantiate the plant on the selected soil
-            GameObject plant = Instantiate(selectedPlantPrefab, selectedSoil.transform.position, Quaternion.identity);
+            // Ensure the prefab spawns upright
+            Quaternion correctRotation = Quaternion.Euler(270, 0, 0); // Set the desired rotation (Y-up)
+            GameObject plant = Instantiate(selectedPlantPrefab, selectedSoil.transform.position, correctRotation);
+
+            // Store the reference in the soil
             selectedSoil.GetComponent<Ground>().plantedPlant = plant;
+
             Debug.Log($"{plant.name} planted on {selectedSoil.name}.");
         }
         else
