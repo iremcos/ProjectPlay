@@ -12,7 +12,6 @@ public class PickUpItem : MonoBehaviour
     private GameObject popupInstance;
     private bool isPlayerNearby = false;
 
-    // Update is called once per frame
     void Update()
     {
         if (isPlayerNearby && Input.GetKeyDown(KeyCode.E))
@@ -57,10 +56,6 @@ public class PickUpItem : MonoBehaviour
 
     void PickUp()
     {
-
-
-
-
         Destroy(gameObject);
 
         Debug.Log($"Picked up {item.name}");
